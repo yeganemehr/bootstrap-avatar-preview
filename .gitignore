@@ -1,0 +1,5 @@
+node_modules
+*.d.ts
+!JQuery.d.ts
+yarn.lock
+*.js
