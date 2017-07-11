@@ -59,6 +59,7 @@ export class AvatarPreview{
 					$(this).hide();
 				}
 				that.$preview.data("backToDefault", true);
+				that.$element.trigger("bootstrap.avatar.preview.remove");
 			}else{
 				const defaultImage: string = $(this).data("default");
 				if (defaultImage){
@@ -69,6 +70,7 @@ export class AvatarPreview{
 						that.$element.append(`<input type="hidden" name="${emptyInput}" value="1" />`);
 					}
 					$(this).hide();
+					that.$element.trigger("bootstrap.avatar.preview.remove");
 				}
 			}
 		});
@@ -95,7 +97,9 @@ export class AvatarPreview{
 				if ($emptyInput.length){
 					$emptyInput.remove();
 				}
+				that.$element.trigger("bootstrap.avatar.preview.change");
 			}
 		});
+		this.$element.trigger("bootstrap.avatar.preview.init");
 	}
 }
